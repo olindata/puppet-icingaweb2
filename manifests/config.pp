@@ -141,14 +141,16 @@ class icingaweb2::config (
   }
 
   if $::icingaweb2::manage_apache_vhost {
-    ::apache::vhost { $::icingaweb2::apache_vhost_name:
-      ensure          => present,
-      port            => 80,
-      docroot         => "${web_root}/public",
-      options         => ['Indexes','FollowSymLinks','MultiViews','SymLinksIfOwnerMatch'],
-      setenv          => ["ICINGAWEB_CONFIGDIR \" ${config_dir} \""],
-      custom_fragment => template('icingaweb2/apache_vhost.conf.erb'),
-      manage_docroot  => false,
+    # ::apache::vhost { $::icingaweb2::apache_vhost_name:
+    #   ensure          => present,
+    #   port            => 80,
+    #   docroot         => "${web_root}/public",
+    #   options         => ['Indexes','FollowSymLinks','MultiViews','SymLinksIfOwnerMatch'],
+    #   setenv          => ["ICINGAWEB_CONFIGDIR \" ${config_dir} \""],
+    #   custom_fragment => template('icingaweb2/apache_vhost.conf.erb'),
+    #   manage_docroot  => false,
+    ::apache::custom_config { 'icingaweb2':
+      content => template($::icingaweb2::template_apache),
     }
 
   }
