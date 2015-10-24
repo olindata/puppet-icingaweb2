@@ -191,6 +191,7 @@ class icingaweb2 (
   $log_resource                      = $::icingaweb2::params::log_resource,
   $log_store                         = $::icingaweb2::params::log_store,
   $manage_apache_vhost               = $::icingaweb2::params::manage_apache_vhost,
+  $apache_vhost_name                 = $::icingaweb2::params::apache_vhost_name,
   $manage_repo                       = $::icingaweb2::params::manage_repo,
   $pkg_deps                          = $::icingaweb2::params::pkg_deps,
   $pkg_ensure                        = $::icingaweb2::params::pkg_ensure,
