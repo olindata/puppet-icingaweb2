@@ -147,7 +147,7 @@ class icingaweb2::config (
       docroot         => "${web_root}/public",
       options         => ['Indexes','FollowSymLinks','MultiViews','SymLinksIfOwnerMatch'],
       setenv          => ["ICINGAWEB_CONFIGDIR \" ${config_dir} \""],
-      # custom_fragment => template(),
+      custom_fragment => template('icingaweb2/apache_vhost.conf.erb'),
       manage_docroot  => false,
     }
 
