@@ -144,7 +144,7 @@ class icingaweb2::config (
     ::apache::vhost { $::icingaweb2::apache_vhost_name:
       ensure          => present,
       port            => 80,
-      docroot         => $web_root,
+      docroot         => "${web_root}/public",
       options         => ['Indexes','FollowSymLinks','MultiViews','SymLinksIfOwnerMatch'],
       setenv          => ["ICINGAWEB_CONFIGDIR \" ${config_dir} \""],
       # custom_fragment => template(),
